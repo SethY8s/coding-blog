@@ -7,9 +7,38 @@ let blogMess = document.getElementById('blog');
 
 blog.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log(subject.value)
-        
+        const dateValue = date.value;
+        const subjectValue = subject.value;
+        const blogMessValue = blogMess.value;
+
+        // header for date
+
+        const dateHeader = document.createElement('h2');
+        dateHeader.innerText = dateValue;
+        document.body.appendChild(dateHeader);
+
+        // header for Subject
+
+        const subjectHeader = document.createElement('h3');
+        subjectHeader.innerText = subjectValue;
+        document.body.appendChild(subjectHeader);
+
+        // paragraph for blog message
+
+        const blogMessPar = document.createElement('p');
+        blogMessPar.innerText = blogMessValue;
+        document.body.appendChild(blogMessPar);
+
+        const deleteButton =  document.createElement('button')
+        deleteButton.innerText = 'delete post';
+        document.body.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', function () {
+            dateHeader.remove();
+            subjectHeader.remove();
+            blogMessPar.remove();
+            deleteButton.remove();
+        })
 
     })
 // console.log(date.value)
-console.log("penis")
