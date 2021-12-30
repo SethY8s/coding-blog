@@ -1,67 +1,68 @@
-let blog = document.querySelector('.blog-container')
+let blog = document.querySelector('.blog-container');
 
 let date = document.getElementById('date');
 let subject = document.getElementById('subject');
 let blogMess = document.getElementById('blog');
 
-
 blog.addEventListener('submit', function (e) {
-        e.preventDefault();
+  e.preventDefault();
 
-        const dateValue = date.value;
-        const subjectValue = subject.value;
-        const blogMessValue = blogMess.value;
+  const dateValue = date.value;
+  const subjectValue = subject.value;
+  const blogMessValue = blogMess.value;
 
-         const data = {
-             date: date.value,
-             subject: subject.value,
-             mess: blogMess.value
-         }
+  const data = {
+    date: date.value,
+    subject: subject.value,
+    mess: blogMess.value,
+  };
+  // specifying the method for the fetch api. This is how I set up to send it
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    //  sending data with stringify bc post needs to make data
+    // a string
+    body: JSON.stringify(data),
+  };
 
-         const options = {
-             method: 'POST',
-             headers: {
-                'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(data)
-         };
-         fetch('/api', options);
-        
-        // header for date
+  // actual fetch function
+  fetch('/api', options).then(res => {
+      if(res === 'success'){
+          alert('posted blog')
+      }
+  });
 
-        const dateHeader = document.createElement('h2');
-        dateHeader.innerText = data.date;
-        document.body.appendChild(dateHeader);
-    
+  // header for date
 
-        // header for Subject
+  const dateHeader = document.createElement('h2');
+  dateHeader.innerText = data.date;
+  document.body.appendChild(dateHeader);
 
-        const subjectHeader = document.createElement('h3');
-        subjectHeader.innerText = data.subject;
-        document.body.appendChild(subjectHeader);
-        
+  // header for Subject
 
-        // paragraph for blog message
+  const subjectHeader = document.createElement('h3');
+  subjectHeader.innerText = data.subject;
+  document.body.appendChild(subjectHeader);
 
-        const blogMessPar = document.createElement('p');
-        blogMessPar.innerText = data.mess;
-        document.body.appendChild(blogMessPar);
-        
+  // paragraph for blog message
 
-        // button w/ delete function
+  const blogMessPar = document.createElement('p');
+  blogMessPar.innerText = data.mess;
+  document.body.appendChild(blogMessPar);
 
-        const deleteButton =  document.createElement('button')
-        deleteButton.innerText = 'delete post';
-        document.body.appendChild(deleteButton);
+  // button w/ delete function
 
-        deleteButton.addEventListener('click', function () {
-            dateHeader.remove();
-            subjectHeader.remove();
-            blogMessPar.remove();
-            deleteButton.remove();
-        })
+  const deleteButton = document.createElement('button');
+  deleteButton.innerText = 'delete post';
+  document.body.appendChild(deleteButton);
 
-        
-
-    })
+  deleteButton.addEventListener('click', function () {
+    dateHeader.remove();
+    subjectHeader.remove();
+    blogMessPar.remove();
+    deleteButton.remove();
+  });
+});
 // console.log(date.value)
