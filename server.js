@@ -16,17 +16,13 @@ app.use(express.json({ limit: '1mb' }));
 const dataSender = [];
 
 app.post('/api', (req, res) => {
-    console.log('i got a req!')
+    console.log('got req')
     console.log(req.body);
     const data = req.body;
     dataSender.push(data);
     console.log(dataSender);
     res.send('success')
-        
     }
-    
-
-
 );
 
 

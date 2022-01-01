@@ -28,11 +28,12 @@ blog.addEventListener('submit', function (e) {
   };
 
   // actual fetch function
-  fetch('/api', options).then(res => {
-      if(res === 'success'){
-          alert('posted blog')
-      }
-  });
+  fetch('/api', options).then(res => res.text()).then
+  (data => { if (data === 'success')
+  {alert('posted blog')}})
+  
+    
+
 
   // header for date
 
