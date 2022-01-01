@@ -30,7 +30,11 @@ blog.addEventListener('submit', function (e) {
   // actual fetch function
   fetch('/api', options).then(res => res.text()).then
   (data => { if (data === 'success')
-  {alert('posted blog')}})
+  alert('posted blog');
+  date.value = '';
+  subject.value = '';
+  blogMess.value = '';
+})
   
     
 
