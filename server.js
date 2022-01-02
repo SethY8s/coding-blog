@@ -17,16 +17,25 @@ app.use(express.json({ limit: '1mb' }));
 
 
 
-
 app.post('/api', (req, res) => {
     const data = req.body;
-    const words = JSON.stringify(data, null, 2);
-    res.send('success')
-    fs.appendFile('data.json', words, finished);
-    function finished(err) {
-    console.log('all set')
-    console.log(words)
-        } 
+    const word = JSON.stringify(data, null, 2);
+
+
+    const file =  fs.readFileSync('data.json');
+    blogPosts = JSON.parse(file);
+    blogPosts.push(data);
+     fs.writeFileSync('data.json', JSON.stringify(blogPosts, null, 4));
+    
+
+   
+    
+
+    res.send('success');
+    // fs.writeFile('data.json', word, {'flag':'a'}, finished);
+    // function finished(err) {
+    // console.log('all set');
+    //     } 
    }
 );
 
