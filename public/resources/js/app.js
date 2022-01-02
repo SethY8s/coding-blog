@@ -1,15 +1,10 @@
 let blog = document.querySelector('.blog-container');
-
 let date = document.getElementById('date');
 let subject = document.getElementById('subject');
 let blogMess = document.getElementById('blog');
 
 blog.addEventListener('submit', function (e) {
   e.preventDefault();
-
-  const dateValue = date.value;
-  const subjectValue = subject.value;
-  const blogMessValue = blogMess.value;
 
   const data = {
     date: date.value,
@@ -36,9 +31,6 @@ blog.addEventListener('submit', function (e) {
   blogMess.value = '';
 })
   
-    
-
-
   // header for date
 
   const dateHeader = document.createElement('h2');

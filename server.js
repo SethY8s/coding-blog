@@ -1,6 +1,10 @@
 const fs = require('fs');
 const express = require('express');
+const { finished } = require('stream');
 const app = express();
+
+
+
 
 const PORT = 5000;
 
@@ -8,21 +12,22 @@ const PORT = 5000;
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 
-// app.get('/', (req, res)=>{
-//     res.sendFile(__dirname + '/public/index.html');
 
-// })
 
-const dataSender = [];
+
+
+
 
 app.post('/api', (req, res) => {
-    console.log('got req')
-    console.log(req.body);
     const data = req.body;
-    dataSender.push(data);
-    console.log(dataSender);
+    const words = JSON.stringify(data, null, 2);
     res.send('success')
-    }
+    fs.appendFile('data.json', words, finished);
+    function finished(err) {
+    console.log('all set')
+    console.log(words)
+        } 
+   }
 );
 
 
