@@ -3,6 +3,11 @@ let date = document.getElementById('date');
 let subject = document.getElementById('subject');
 let blogMess = document.getElementById('blog');
 
+
+fetch('http://localhost:5000/results')
+.then(response => response.json())
+.then(data => console.log(data))
+
 blog.addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -22,6 +27,8 @@ blog.addEventListener('submit', function (e) {
     body: JSON.stringify(data),
   };
 
+ 
+
   // actual fetch function
   fetch('/api', options).then(res => res.text()).then
   (data => { if (data === 'success')
@@ -30,6 +37,8 @@ blog.addEventListener('submit', function (e) {
   subject.value = '';
   blogMess.value = '';
 })
+
+
   
   // header for date
 
@@ -63,3 +72,4 @@ blog.addEventListener('submit', function (e) {
   });
 });
 // console.log(date.value)
+
