@@ -10,8 +10,11 @@ fetch('http://localhost:5000/results')
 .then(response => response.json())
 .then(data => {
   data.forEach(element => {
-    const title = `<h2>${element.date}</h2><br><h3>${element.subject}</h3><br><p>${element.mess}</p>`;
+    const title = `<br><h2>${element.date}</h2><h3>${element.subject}</h3><p>${element.mess}</p id="deleteButton"><button>delete post</button><br>`;
+    
     feedDisplay.insertAdjacentHTML('beforeend', title);
+
+    
   })
 })
 .catch(err => console.log(err));
