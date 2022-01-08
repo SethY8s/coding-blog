@@ -3,5 +3,10 @@
         "date": "1/6/2022",
         "subject": "Finished Website",
         "mess": "Yay! Today I finished the main purpose of the website! Hopefully I can add a working delete button!"
+    },
+    {
+        "date": "1/8/2022",
+        "subject": "TTD coding",
+        "mess": "The past two days I have  been learning about testing code and how to write better code. This involves validating your code. Today I am also going to learning about mocha. Mocha is a framework that helps me do this. Today I am also going to add some styling to my blog site."
     }
 ]
