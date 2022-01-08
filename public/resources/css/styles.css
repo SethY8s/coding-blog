@@ -6,8 +6,13 @@
 article{
     display: flex;
     flex-direction:column-reverse;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    width: 100%;
 }
-
+/* form */
 form{
     width: 100%;
     display: flex;
@@ -16,6 +21,24 @@ form{
     align-items: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
-    background-image: url("../image/0_kBHpKva09AsGj7RQ.jpg");
-    
+    background-image: url("../image/0_kBHpKva09AsGj7RQ.jpg");  
+}
+
+form input{
+    width:30%;
+    border: 2px solid green;
+    border-radius: 3px;
+}
+form textarea{
+    border-radius: 3px;
+}
+/* end of form */
+
+div{
+    margin: 1.5rem;
+    width: 60%;
+}
+
+div h2, h3, p, button{
+    margin-top: .5em;
 }
